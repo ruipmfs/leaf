@@ -12,6 +12,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { TypeAnimation } from "react-type-animation";
 import LeafLogo from './assets/leaf_logo_3_negative.png';
 import SavingFace from './assets/SavingFace.png';
+import InterviewImage from './assets/InterviewBanner.jpg';
 import SavingFacePdf from './assets/SavingFace.pdf';
 import React, {useState} from "react";
 import { useSelector, useDispatch } from 'react-redux';
@@ -69,10 +70,18 @@ function App() {
 
     window.addEventListener('scroll', checkIsScrolled);
 
-    const cardFooter = (
+    const savingFaceFooter = (
         <>
             <a href={SavingFacePdf} className="p-button p-button-secondary" target="__blank">
                 {isPortuguese ? "Ler mais" : "Read more"}
+            </a>
+        </>
+    );
+
+    const interviewFooter = (
+        <>
+            <a href="https://www.rtp.pt/play/p14462/e893828/bem-vindos-manha/1384846" className="p-button p-button-secondary" target="__blank">
+                {isPortuguese ? "Ver" : "Watch"}
             </a>
         </>
     );
@@ -331,7 +340,8 @@ function App() {
             <div className="lf-newsletter" id="newsletter">
                 <h1 className="lf-black">Newsletter</h1>
                 <div className="lf-newsletter__cards">
-                    <Card title="Saving Face" subTitle={isPortuguese ? "Maio 2018" : "May 2018"} footer={cardFooter} header={() => cardHeader(SavingFace)} className="md:w-25rem" />
+                    <Card title="Saving Face" subTitle={isPortuguese ? "Maio 2018" : "May 2018"} footer={savingFaceFooter} header={() => cardHeader(SavingFace)} className="md:w-25rem" />
+                    <Card title={isPortuguese ? "Falar em público num idioma estrangeiro" : "Public speaking in a foreign language"} subTitle={isPortuguese ? "Entrevista na RTP África, no programa \"Bem Vindos\" - Novembro 2025" : "Interview on RTP Africa, in the program \"Bem vindos\" - November 2025"} footer={interviewFooter} header={() => cardHeader(InterviewImage)} className="md:w-25rem" />
                 </div>
             </div>
             <div className="lf-contact" id="contact">
